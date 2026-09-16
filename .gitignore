@@ -1,0 +1,6 @@
+profiles/alvaro.json
+data/seen_jobs.json
+.env
+*.env
+__pycache__/
+*.py[cod]
