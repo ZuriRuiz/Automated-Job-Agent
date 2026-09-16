@@ -1,0 +1,106 @@
+{
+  "name": "Jane Doe",
+  "email": "your-email@example.com",
+
+  "location": {
+    "country": "Spain",
+    "city": "Barcelona",
+    "remote": true
+  },
+
+  "target_roles": [
+    "Senior QA Engineer",
+    "QA Automation Engineer",
+    "SDET",
+    "QA Lead",
+    "Test Engineer"
+  ],
+
+  "seniority": [
+    "Senior",
+    "Semi-Senior",
+    "Lead"
+  ],
+
+  "skills": [
+    "Test Automation",
+    "Selenium",
+    "Playwright",
+    "Cypress",
+    "API Testing",
+    "REST",
+    "CI/CD",
+    "Python",
+    "JavaScript",
+    "Git",
+    "Agile",
+    "Scrum",
+    "BDD",
+    "TDD"
+  ],
+
+  "tools": [
+    "Pytest",
+    "Jest",
+    "Postman",
+    "GitHub Actions",
+    "Jenkins",
+    "Jira",
+    "Confluence",
+    "Docker"
+  ],
+
+  "industries": [
+    "SaaS",
+    "Fintech",
+    "Technology",
+    "Startups",
+    "B2B"
+  ],
+
+  "preferred_work_type": [
+    "Remote",
+    "Hybrid"
+  ],
+
+  "languages": [
+    "English",
+    "Spanish"
+  ],
+
+  "education": [
+    "Computer Science",
+    "Software Engineering"
+  ],
+
+  "certifications": [
+    "ISTQB Foundation Level",
+    "AWS Cloud Practitioner"
+  ],
+
+  "excluded_roles": [
+    "Junior QA",
+    "QA Intern",
+    "Manual QA only",
+    "Game Tester"
+  ],
+
+  "excluded_keywords": [
+    "unpaid",
+    "internship",
+    "intern",
+    "junior"
+  ],
+
+  "minimum_match_score": 70,
+
+  "location_policy": {
+    "remote": "anywhere",
+    "hybrid": [
+      "Spain"
+    ],
+    "on_site": [
+      "Spain"
+    ]
+  }
+}
