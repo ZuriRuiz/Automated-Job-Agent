@@ -1,0 +1,84 @@
+name: ZuriBot 2000™ - Job Alerts
+
+on:
+
+  workflow_dispatch:
+
+    inputs:
+
+      initial_send:
+        description: "Enviar el primer correo real con las oportunidades actuales"
+        required: false
+        default: false
+        type: boolean
+
+  schedule:
+
+    - cron: "0 12 * * *"
+    - cron: "0 22 * * *"
+
+
+permissions:
+  contents: write
+
+
+jobs:
+
+  job-alert:
+
+    runs-on: ubuntu-latest
+
+
+    steps:
+
+
+      - name: Checkout repository
+
+        uses: actions/checkout@v4
+
+
+      - name: Set up Python
+
+        uses: actions/setup-python@v5
+
+        with:
+          python-version: "3.12"
+
+
+      - name: Install dependencies
+
+        run: |
+          pip install requests
+
+
+      - name: Run ZuriBot
+
+        env:
+
+          EMAIL_USERNAME: ${{ secrets.EMAIL_USERNAME }}
+
+          EMAIL_APP_PASSWORD: ${{ secrets.EMAIL_APP_PASSWORD }}
+
+          EMAIL_MONITOR: ${{ secrets.EMAIL_MONITOR }}
+
+          INITIAL_SEND: ${{ inputs.initial_send }}
+
+        run: |
+
+          python -u src/filter_jobs.py
+
+
+      - name: Commit seen jobs
+
+        run: |
+
+          git config user.name "github-actions[bot]"
+
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add data/seen_jobs.json
+
+          git diff --cached --quiet || git commit \
+            -m "Update seen jobs"
+
+          git push
